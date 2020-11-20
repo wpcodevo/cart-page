@@ -1,0 +1,356 @@
+:root {
+  --white: #fff;
+  --black: #111;
+  --primary: #9d9091;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* HEADER */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 100;
+}
+
+.hamburger {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7rem;
+}
+
+.logo span {
+  font-style: italic;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-right: 0.2rem;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav-link {
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 80%;
+    background-color: var(--white);
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 500ms ease-in-out;
+  }
+
+  .menu.show {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .nav-list {
+    padding: 3rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-item:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .nav-link {
+    font-weight: 500;
+  }
+}
+
+/* SHOE */
+.row {
+  height: calc(100vh - 7rem);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+/* Nike Shoe */
+.shoe {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+  position: relative;
+}
+
+.shoe-figure {
+  position: relative;
+  width: 37rem;
+  height: 37rem;
+  background-color: var(--black);
+  border-radius: 50%;
+  transition: 500ms linear;
+}
+
+.shoe-figure::before {
+  content: "";
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 85%;
+  height: 85%;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
+.shoe-img {
+  width: 55rem;
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(30deg);
+}
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.dot {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.dot:not(:last-child) {
+  margin-right: 0.7rem;
+}
+
+.dot-color-1 {
+  background-color: var(--black);
+}
+
+.dot-color-2 {
+  background-color: var(--primary);
+}
+
+.dot.active {
+  border: 1px solid var(--white);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.info-subtitle {
+  font-weight: 500;
+  font-size: 2.2rem;
+}
+
+.info-title {
+  font-size: 4.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.info-description {
+  margin-bottom: 3rem;
+}
+
+.info-down {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.size-title,
+.count-title {
+  margin-bottom: 1rem;
+}
+
+.size-total {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--black);
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 0.5rem;
+}
+
+.size-total.active {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.size-total:not(:last-child) {
+  margin-right: 1.5rem;
+}
+
+.count-content {
+  background-color: var(--black);
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+  width: 10rem;
+  height: 3rem;
+}
+
+.count-content span {
+  font-size: 1.8rem;
+  color: var(--white);
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.price {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.price-title {
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.price-button {
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 0.5rem;
+  padding: 1.3rem 5rem;
+}
+
+@media only screen and (max-width: 840px) {
+  .row {
+    grid-template-columns: 1fr;
+    margin-top: 8rem;
+    overflow: visible;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .row {
+    margin-top: 4rem;
+  }
+
+  .shoe-figure {
+    width: 27rem;
+    height: 27rem;
+  }
+
+  .shoe-img {
+    width: 35rem;
+    top: 25%;
+  }
+
+  .info-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .info-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-description {
+    line-height: 1.2;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    position: absolute;
+    left: 0;
+    margin-top: 4rem;
+    border-radius: 2rem 2rem 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 2rem 2rem 0 2rem;
+  }
+}
